@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: #e5ecf9;
 }
 
 a {
@@ -17,4 +18,7 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.container {
+  @apply lg:w-[1126px] md:w-[400px];
 }
