@@ -16,7 +16,7 @@ function InputContainer() {
         min={50000}
         max={2500000}
         step={1000}
-        label="Purchase price"
+        label="Interest rate"
       />
     </div>
   );
