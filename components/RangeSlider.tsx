@@ -10,10 +10,7 @@ function RangeSlider({ initialValue, min, max, step, label }) {
   return (
     <div className="mb-8">
       <span className="calculator__label">{label}</span>
-
-      <div className="flex items-start">
-        <p className="slider__price">{price.toLocaleString()}</p>
-      </div>
+      <p className="slider__price">{price.toLocaleString()}</p>
       <div className="relative h-[3px] rounded-md bg-gray-300">
         <div
           className="absolute h-[3px] bg-bluebg rounded"

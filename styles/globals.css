@@ -40,10 +40,14 @@ a {
   @apply flex-1 bg-white rounded-[32px] text-center shadow-2xl shadow-gray-400 relative;
 }
 .result__price {
-  @apply pt-14 text-[120px] text-grey;
+  @apply pt-8 text-[120px] text-grey;
 }
 .btn {
+  transition: 0.2s;
   @apply bg-purple rounded-full text-white py-5 px-10 capitalize text-xl block mx-auto absolute -translate-x-1/2 left-1/2 -bottom-8;
+}
+.btn:hover {
+  @apply -bottom-6;
 }
 .calculator__label {
   @apply text-xs font-semibold text-lightgrey capitalize;
@@ -54,16 +58,12 @@ a {
 .slider__price:before {
   content: "$";
   vertical-align: text-top;
-  /* position: relative; */
   top: 0px;
   left: -2px;
   @apply text-[20px] relative;
 }
 .slider__price {
   @apply text-[32px] py-1 pl-[1px];
-}
-.dollar-sign {
-  @apply text-[50%];
 }
 input[type="range"]::-webkit-slider-thumb {
   pointer-events: auto;
@@ -91,7 +91,7 @@ input[type="range"]::-webkit-slider-thumb {
   @apply bg-purple rounded-full w-[16px] h-[16px];
 }
 .unselected {
-  @apply border border-lightgrey
+  @apply border border-lightgrey;
 }
 .unselected-circle {
   width: 0;
@@ -99,4 +99,16 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .helper-text {
   @apply pr-4 text-grey;
+}
+.result__price:before {
+  content: "$";
+  top: 6px;
+  left: -2px;
+  @apply text-[48px] relative align-text-top;
+}
+.result__price {
+  @apply text-[106px] pt-8 pb-4 pl-[1px];
+}
+.result__decimal {
+  @apply text-xl text-[48px] align-text-top relative top-7 -right-1;
 }
