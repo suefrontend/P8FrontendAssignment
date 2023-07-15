@@ -2,12 +2,12 @@ import RangeSlider from "./RangeSlider";
 import RadioList from "./RadioList";
 
 function InputContainer({
-  handlePrinciple,
+  handlePrincipal,
   handleInterestRate,
   handleTerm,
   termOfLoan,
-  principle,
-  interestRate,
+  principal,
+  annualInterestRate,
 }) {
   return (
     <div className="flex-1 border border-black">
@@ -15,15 +15,15 @@ function InputContainer({
         min={50000}
         max={2500000}
         step={50000}
-        value={principle}
+        value={principal}
         label="purchase price"
-        setValue={handlePrinciple}
+        setValue={handlePrincipal}
       />
       <RangeSlider
         min={0}
         max={25}
         step={0.1}
-        value={interestRate}
+        value={annualInterestRate}
         label="interest rate"
         setValue={handleInterestRate}
       />

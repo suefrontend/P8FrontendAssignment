@@ -3,21 +3,45 @@ import InputContainer from "./InputContainer";
 import Result from "./Result";
 
 function Main() {
-  const [principle, setPrinciple] = useState<number>(250000);
-  const [interestRate, setInterestRate] = useState<number>(1.5);
+  const [principal, setPrincipal] = useState<number>(250000);
+  const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
+  const [monthlyPayment, setMonthlyPayment] = useState<number>(853.5);
 
   useEffect(() => {
-    console.log("principle", principle);
-    console.log("interestRate", interestRate);
+    console.log("principal", principal);
+    console.log("annualInterestRate", annualInterestRate);
     console.log("termOfLoan", termOfLoan);
-  }, [principle, interestRate, termOfLoan]);
+
+    const getMortgetCalculation = async () => {
+      try {
+        const response = await fetch("/api/mortgageCalculation", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            principal,
+            annualInterestRate,
+            termOfLoan,
+          }),
+        });
+        const data = await response.json();
+        // setMonthlyPayment(monthlyPayment);
+        console.log("data", data);
+      } catch (error) {
+        console.log("Couldn't calculate your mortgage");
+      }
+    };
+
+    getMortgetCalculation();
+  }, [principal, annualInterestRate, termOfLoan]);
 
   const handlePrinciple = (value) => {
-    setPrinciple(value);
+    setPrincipal(value);
   };
   const handleInterestRate = (value) => {
-    setInterestRate(value);
+    setAnnualInterestRate(value);
   };
   const handleTerm = (value) => {
     setTermOfLoan(value);
@@ -31,12 +55,13 @@ function Main() {
       <p className="text-lightgrey text-sm mt-1">
         Qualify or apply your mortgage in minutes
       </p>
+
       <div className="calculator">
         <InputContainer
           handlePrinciple={handlePrinciple}
-          principle={principle}
+          principal={principal}
           handleInterestRate={handleInterestRate}
-          interestRate={interestRate}
+          annualInterestRate={annualInterestRate}
           handleTerm={handleTerm}
           termOfLoan={termOfLoan}
         />
