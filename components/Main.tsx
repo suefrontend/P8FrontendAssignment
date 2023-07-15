@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import InputContainer from "./InputContainer";
 import Result from "./Result";
 
 function Main() {
+  const [termOfLoan, setTermOfLoan] = useState<number>(25);
+
+  useEffect(() => {
+    console.log("termOfLoan", termOfLoan);
+  }, [termOfLoan]);
+
+  const handleTerm = (term) => {
+    setTermOfLoan(term);
+  };
+
   return (
     <div className="container border border-red-500 h-[80vh] ">
       <h2 className="text-[32px] text-grey font-medium">
@@ -11,7 +22,7 @@ function Main() {
         Qualify or apply your mortgage in minutes
       </p>
       <div className="calculator">
-        <InputContainer />
+        <InputContainer handleTerm={handleTerm} termOfLoan={termOfLoan} />
         <Result />
       </div>
     </div>

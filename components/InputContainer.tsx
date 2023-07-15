@@ -1,8 +1,7 @@
 import RangeSlider from "./RangeSlider";
-import RadioButton from "./Radio";
 import RadioList from "./RadioList";
 
-function InputContainer() {
+function InputContainer({ handleTerm, termOfLoan }) {
   return (
     <div className="flex-1 border border-black">
       <RangeSlider
@@ -19,7 +18,11 @@ function InputContainer() {
         step={1000}
         label="Interest rate"
       />
-      <RadioList label="Period" />
+      <RadioList
+        handleTerm={handleTerm}
+        termOfLoan={termOfLoan}
+        label="Period"
+      />
     </div>
   );
 }
