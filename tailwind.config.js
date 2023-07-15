@@ -9,8 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
+    extend: {
+      container: {
+        center: true,
+      },
+      colors: { grey: "#3D515B", purple: "red" },
     },
   },
   plugins: [],

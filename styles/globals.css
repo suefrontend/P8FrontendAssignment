@@ -22,3 +22,9 @@ a {
 .container {
   @apply lg:w-[1126px] md:w-[400px];
 }
+.header {
+  @apply bg-white py-2 shadow-2xl shadow-blue-500/50;
+}
+.logo {
+  @apply w-[8rem] h-[2rem] relative;
+}
