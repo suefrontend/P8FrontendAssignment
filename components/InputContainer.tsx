@@ -1,5 +1,6 @@
-import InputItem from "./InputItem";
 import RangeSlider from "./RangeSlider";
+import RadioButton from "./Radio";
+import RadioList from "./RadioList";
 
 function InputContainer() {
   return (
@@ -18,6 +19,7 @@ function InputContainer() {
         step={1000}
         label="Interest rate"
       />
+      <RadioList label="Period" />
     </div>
   );
 }
