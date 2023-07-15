@@ -3,14 +3,24 @@ import InputContainer from "./InputContainer";
 import Result from "./Result";
 
 function Main() {
+  const [principle, setPrinciple] = useState<number>(250000);
+  const [interest, setInterest] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
 
   useEffect(() => {
+    console.log("principle", principle);
+    console.log("interest", interest);
     console.log("termOfLoan", termOfLoan);
-  }, [termOfLoan]);
+  }, [principle, interest, termOfLoan]);
 
-  const handleTerm = (term) => {
-    setTermOfLoan(term);
+  const handlePrinciple = (value) => {
+    setPrinciple(value);
+  };
+  const handleInterest = (value) => {
+    setInterest(value);
+  };
+  const handleTerm = (value) => {
+    setTermOfLoan(value);
   };
 
   return (
@@ -22,7 +32,14 @@ function Main() {
         Qualify or apply your mortgage in minutes
       </p>
       <div className="calculator">
-        <InputContainer handleTerm={handleTerm} termOfLoan={termOfLoan} />
+        <InputContainer
+          handlePrinciple={handlePrinciple}
+          principle={principle}
+          handleInterest={handleInterest}
+          interest={interest}
+          handleTerm={handleTerm}
+          termOfLoan={termOfLoan}
+        />
         <Result />
       </div>
     </div>

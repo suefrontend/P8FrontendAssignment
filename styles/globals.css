@@ -52,6 +52,9 @@ a {
 .calculator__label {
   @apply text-xs font-semibold text-lightgrey capitalize;
 }
+.slider {
+  @apply absolute w-full -top-1 h-1 bg-transparent appearance-none pointer-events-none;
+}
 .slider__range {
   @apply text-xs font-semibold text-lightgrey uppercase;
 }
@@ -74,11 +77,13 @@ input[type="range"]::-webkit-slider-thumb {
   border: 2px solid rgba(21, 97, 209, 0.7);
   @apply bg-white;
 }
-.radio-container {
+.radio__container {
   user-select: none;
   @apply cursor-pointer flex;
 }
-
+.radio__label {
+  @apply pr-4 text-grey font-semibold;
+}
 .radio-outer-circle {
   width: 24px;
   height: 24px;
@@ -94,11 +99,7 @@ input[type="range"]::-webkit-slider-thumb {
   @apply border border-lightgrey;
 }
 .unselected-circle {
-  width: 0;
-  height: 0;
-}
-.helper-text {
-  @apply pr-4 text-grey;
+  @apply w-0 h-0;
 }
 .result__price:before {
   content: "$";

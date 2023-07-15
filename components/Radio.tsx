@@ -1,7 +1,7 @@
 function Radio({ value, selected, text, onChange }) {
   return (
     <div
-      className="radio-container"
+      className="radio__container"
       onClick={() => {
         onChange(value);
       }}
@@ -15,7 +15,7 @@ function Radio({ value, selected, text, onChange }) {
           }`}
         />
       </div>
-      <div className="helper-text font-semibold">{text}</div>
+      <div className="radio__label">{text}</div>
     </div>
   );
 }
