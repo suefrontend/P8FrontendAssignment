@@ -45,7 +45,7 @@ a {
 .btn {
   @apply bg-purple rounded-full text-white py-5 px-10 capitalize text-xl block mx-auto absolute -translate-x-1/2 left-1/2 -bottom-8;
 }
-.slider__label {
+.calculator__label {
   @apply text-xs font-semibold text-lightgrey capitalize;
 }
 .slider__range {
@@ -73,4 +73,30 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 2px solid rgba(21, 97, 209, 0.7);
   @apply bg-white;
+}
+.radio-container {
+  user-select: none;
+  @apply cursor-pointer flex;
+}
+
+.radio-outer-circle {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  border: 1px solid #4c3272;
+  @apply flex items-center justify-center rounded-full bg-white mr-3;
+}
+.radio-inner-circle {
+  @apply bg-purple rounded-full w-[16px] h-[16px];
+}
+.unselected {
+  @apply border border-lightgrey
+}
+.unselected-circle {
+  width: 0;
+  height: 0;
+}
+.helper-text {
+  @apply pr-4 text-grey;
 }
