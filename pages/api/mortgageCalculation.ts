@@ -1,44 +1,71 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+// // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
   monthlyPayment?: string;
   error?: string;
-}
+};
 
 type MortgageParams = {
   principal: number;
   annualInterestRate: number;
-  termOfLoan: number; 
-}
+  termOfLoan: number;
+};
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    if(req.method === 'POST'){
-      const {principal, annualInterestRate, termOfLoan} = req.query;
-      const values = calculatePayment({principal: parseInt(principal.toString()), annualInterestRate:parseInt(annualInterestRate.toString()), termOfLoan:parseInt(termOfLoan.toString())});
-      setTimeout(() => {
-        if (values !== "NaN") res.status(200).json({ monthlyPayment: values });
-        else
-          res
-            .status(400)
-            .json({
-              error:
-                "There was a problem calculating your mortgage. Please check your inputs",
-            });
-      }, 1000);
-  }else{
-      res.status(400).json({ error: 'Only accepts POST' })
+  if (req.method === "POST") {
+    // const { principal, annualInterestRate, termOfLoan } = req.query;
+    const { principal, annualInterestRate, termOfLoan } = req.body;
+    const values = calculatePayment({
+      principal: parseInt(principal.toString()),
+      annualInterestRate: parseInt(annualInterestRate.toString()),
+      termOfLoan: parseInt(termOfLoan.toString()),
+    });
+    setTimeout(() => {
+      if (values !== "NaN") res.status(200).json({ monthlyPayment: values });
+      else
+        res.status(400).json({
+          error:
+            "There was a problem calculating your mortgage. Please check your inputs",
+        });
+    }, 1000);
+  } else {
+    res.status(400).json({ error: "Only accepts POST" });
   }
 }
 
-function calculatePayment({principal, annualInterestRate, termOfLoan}:MortgageParams) {
-    var percentageRate = annualInterestRate / 1200;
-    var lengthOfLoan = 12 * termOfLoan;
-    var monthlyPayment = (principal * percentageRate) / (1 - (Math.pow((1 + percentageRate) , lengthOfLoan * -1)));
-    const payment = monthlyPayment.toFixed(2);
+function calculatePayment({
+  principal,
+  annualInterestRate,
+  termOfLoan,
+}: MortgageParams) {
+  var percentageRate = annualInterestRate / 1200;
+  var lengthOfLoan = 12 * termOfLoan;
+  var monthlyPayment =
+    (principal * percentageRate) /
+    (1 - Math.pow(1 + percentageRate, lengthOfLoan * -1));
+  const payment = monthlyPayment.toFixed(2);
 
-    return payment;
-} 
+  return payment;
+}
+// export default function handler(req, res) {
+//   const requestMethod = req.method;
+//   // const body = JSON.parse(req.body);
+//   const { title2 } = req.query;
+//   console.log("req.query.title", req.query.title);
+//   // const { principal, annualInterestRate, termOfLoan } = req.query;
+//   // const { principal, annualInterestRate, termOfLoan } = req.body;
+//   switch (requestMethod) {
+//     case "POST":
+//       res.status(200).json({
+//         message: `You submitted the following data: ${req.body.principal}, ${req.body.annualInterestRate}, ${req.body.termOfLoan}`,
+//       });
+
+//     // handle other HTTP methods
+//     default:
+//       res.status(200).json({ message: "Welcome to API Routes!" });
+//   }
+// }
