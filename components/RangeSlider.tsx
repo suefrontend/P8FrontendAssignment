@@ -10,27 +10,32 @@ function RangeSlider({
   interest,
   principle,
   handlePrinciple,
+  handleInterestRate,
   value,
+  setValue,
 }) {
   const handleSlide = (value) => {
-    handlePrinciple(value);
+    setValue(value);
   };
+
   return (
     <div className="mb-8">
       <span className="calculator__label">{label}</span>
-      <div className="relative">
-        <Slider
-          size="small"
-          min={min}
-          max={max}
-          step={step}
-          value={principle}
-          onChange={(e) => handleSlide(e.target.value)}
-        />
-      </div>
+      <p>{value}</p>
+
+      <Slider
+        size="small"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => handleSlide(e.target.value)}
+        valueLabelDisplay="auto"
+      />
+
       <div className="flex justify-between pt-2">
-        <small className="slider__range">$50K</small>
-        <small className="slider__range">$2.5M</small>
+        <small className="slider__range">{min}</small>
+        <small className="slider__range">{max}</small>
       </div>
     </div>
   );

@@ -4,20 +4,20 @@ import Result from "./Result";
 
 function Main() {
   const [principle, setPrinciple] = useState<number>(250000);
-  const [interest, setInterest] = useState<number>(1.5);
+  const [interestRate, setInterestRate] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
 
   useEffect(() => {
     console.log("principle", principle);
-    console.log("interest", interest);
+    console.log("interestRate", interestRate);
     console.log("termOfLoan", termOfLoan);
-  }, [principle, interest, termOfLoan]);
+  }, [principle, interestRate, termOfLoan]);
 
   const handlePrinciple = (value) => {
     setPrinciple(value);
   };
-  const handleInterest = (value) => {
-    setInterest(value);
+  const handleInterestRate = (value) => {
+    setInterestRate(value);
   };
   const handleTerm = (value) => {
     setTermOfLoan(value);
@@ -35,8 +35,8 @@ function Main() {
         <InputContainer
           handlePrinciple={handlePrinciple}
           principle={principle}
-          handleInterest={handleInterest}
-          interest={interest}
+          handleInterestRate={handleInterestRate}
+          interestRate={interestRate}
           handleTerm={handleTerm}
           termOfLoan={termOfLoan}
         />
