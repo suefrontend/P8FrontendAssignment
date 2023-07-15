@@ -45,3 +45,32 @@ a {
 .btn {
   @apply bg-purple rounded-full text-white py-5 px-10 capitalize text-xl block mx-auto absolute -translate-x-1/2 left-1/2 -bottom-8;
 }
+.slider__label {
+  @apply text-xs font-semibold text-lightgrey capitalize;
+}
+.slider__range {
+  @apply text-xs font-semibold text-lightgrey uppercase;
+}
+.slider__price:before {
+  content: "$";
+  vertical-align: text-top;
+  /* position: relative; */
+  top: 0px;
+  left: -2px;
+  @apply text-[20px] relative;
+}
+.slider__price {
+  @apply text-[32px] py-1 pl-[1px];
+}
+.dollar-sign {
+  @apply text-[50%];
+}
+input[type="range"]::-webkit-slider-thumb {
+  pointer-events: auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  border: 2px solid rgba(21, 97, 209, 0.7);
+  @apply bg-white;
+}
