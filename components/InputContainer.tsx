@@ -1,4 +1,3 @@
-import InputItem from "./InputItem";
 import RangeSlider from "./RangeSlider";
 
 function InputContainer() {
