@@ -15,9 +15,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 * {
   box-sizing: border-box;
+}
+.wrapper {
+  @apply flex flex-col;
 }
 .container {
   @apply lg:w-[1126px] md:w-[400px];
@@ -27,4 +29,19 @@ a {
 }
 .logo {
   @apply w-[8rem] h-[2rem] relative;
+}
+.main {
+  @apply border-blue-700 border flex pt-24;
+}
+.calculator {
+  @apply flex gap-32 pt-10;
+}
+.result__container {
+  @apply flex-1 bg-white rounded-[32px] text-center shadow-2xl shadow-gray-400 relative;
+}
+.result__price {
+  @apply pt-14 text-[120px] text-grey;
+}
+.btn {
+  @apply bg-purple rounded-full text-white py-5 px-10 capitalize text-xl block mx-auto absolute -translate-x-1/2 left-1/2 -bottom-8;
 }

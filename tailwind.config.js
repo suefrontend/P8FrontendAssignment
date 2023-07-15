@@ -13,7 +13,11 @@ module.exports = {
       container: {
         center: true,
       },
-      colors: { grey: "#3D515B", purple: "red" },
+      colors: {
+        grey: "#3d515b",
+        lightgrey: "#9faeb9",
+        purple: "#4c3272",
+      },
     },
   },
   plugins: [],
