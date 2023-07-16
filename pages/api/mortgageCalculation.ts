@@ -17,7 +17,7 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method === "POST") {
-    // const { principal, annualInterestRate, termOfLoan } = req.query;
+    // Changed from req.query to req.body
     const { principal, annualInterestRate, termOfLoan } = req.body;
     const values = calculatePayment({
       principal: parseInt(principal.toString()),
@@ -51,21 +51,3 @@ function calculatePayment({
 
   return payment;
 }
-// export default function handler(req, res) {
-//   const requestMethod = req.method;
-//   // const body = JSON.parse(req.body);
-//   const { title2 } = req.query;
-//   console.log("req.query.title", req.query.title);
-//   // const { principal, annualInterestRate, termOfLoan } = req.query;
-//   // const { principal, annualInterestRate, termOfLoan } = req.body;
-//   switch (requestMethod) {
-//     case "POST":
-//       res.status(200).json({
-//         message: `You submitted the following data: ${req.body.principal}, ${req.body.annualInterestRate}, ${req.body.termOfLoan}`,
-//       });
-
-//     // handle other HTTP methods
-//     default:
-//       res.status(200).json({ message: "Welcome to API Routes!" });
-//   }
-// }

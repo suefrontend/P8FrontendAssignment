@@ -14,8 +14,8 @@ function RangeSlider({
   value,
   setValue,
 }) {
-  const handleSlide = (value) => {
-    setValue(value);
+  const handleSlide = (e) => {
+    setValue(e.target.value);
   };
 
   return (
@@ -29,7 +29,7 @@ function RangeSlider({
         max={max}
         step={step}
         value={value}
-        onChange={(e) => handleSlide(e.target.value)}
+        onChange={handleSlide}
         valueLabelDisplay="auto"
       />
 

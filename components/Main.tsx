@@ -37,33 +37,23 @@ function Main() {
     getMortgetCalculation();
   }, [principal, annualInterestRate, termOfLoan]);
 
-  const handlePrinciple = (value) => {
-    setPrincipal(value);
-  };
-  const handleInterestRate = (value) => {
-    setAnnualInterestRate(value);
-  };
-  const handleTerm = (value) => {
-    setTermOfLoan(value);
-  };
-
   return (
     <div className="container border border-red-500 h-[80vh] ">
-      <h2 className="text-[32px] text-grey font-medium">
+      <h1 className="text-[32px] text-grey font-medium">
         Get started with Digital Credit Experience
-      </h2>
+      </h1>
       <p className="text-lightgrey text-sm mt-1">
         Qualify or apply your mortgage in minutes
       </p>
 
       <div className="calculator">
         <InputContainer
-          handlePrinciple={handlePrinciple}
           principal={principal}
-          handleInterestRate={handleInterestRate}
           annualInterestRate={annualInterestRate}
-          handleTerm={handleTerm}
           termOfLoan={termOfLoan}
+          setPrincipal={setPrincipal}
+          setAnnualInterestRate={setAnnualInterestRate}
+          setTermOfLoan={setTermOfLoan}
         />
         <Result />
       </div>
