@@ -1,6 +1,14 @@
 import RangeSlider from "./RangeSlider";
 import RadioList from "./RadioList";
-import { InputContainerProps } from "../types";
+
+interface InputContainerProps {
+  termOfLoan: number;
+  principal: number;
+  annualInterestRate: number;
+  setPrincipal: (value: number) => void;
+  setAnnualInterestRate: (value: number) => void;
+  setTermOfLoan: (value: number) => void;
+}
 
 function InputContainer({
   termOfLoan,
@@ -10,12 +18,6 @@ function InputContainer({
   setAnnualInterestRate,
   setTermOfLoan,
 }: InputContainerProps) {
-  const handlePrincipal = (value: number) => {
-    setPrincipal(value);
-  };
-  const handleInterestRate = (value: number) => {
-    setAnnualInterestRate(value);
-  };
   const handleTerm = (value: number) => {
     setTermOfLoan(value);
   };
@@ -42,6 +44,7 @@ function InputContainer({
       />
       <RadioList
         handleTerm={handleTerm}
+        setValue={setTermOfLoan}
         termOfLoan={termOfLoan}
         label="Period"
       />

@@ -1,6 +1,15 @@
 import { ChangeEvent } from "react";
-import { SliderProps } from "../types";
 import { Slider } from "@mui/material";
+
+interface SliderProps {
+  type: string;
+  min: number;
+  max: number;
+  step: number;
+  label: string;
+  value: number;
+  setValue: (value: number) => void;
+}
 
 function RangeSlider({
   type,
@@ -12,7 +21,7 @@ function RangeSlider({
   setValue,
 }: SliderProps) {
   const handleSlide = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setValue(parseInt(e.target.value));
   };
 
   return (

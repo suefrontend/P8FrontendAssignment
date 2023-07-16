@@ -1,4 +1,6 @@
-import { ResultProps } from "../types";
+interface ResultProps {
+  monthlyPayment: number;
+}
 
 const CustomButton = () => <button className="btn">Apply today</button>;
 

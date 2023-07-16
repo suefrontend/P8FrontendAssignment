@@ -1,4 +1,9 @@
-import { RadioProps } from "../types";
+interface RadioProps {
+  value: number;
+  selected: number;
+  text: string;
+  onChange: () => void;
+}
 
 function Radio({ value, selected, text, onChange }: RadioProps) {
   return (
