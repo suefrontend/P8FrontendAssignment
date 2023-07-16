@@ -46,8 +46,18 @@ function RangeSlider({
       />
 
       <div className="flex justify-between pt-2">
-        <span className="slider__range">{formatPrice(min)}</span>
-        <span className="slider__range">{formatPrice(max)}</span>
+        <span
+          className={`${type === "price" ? "price__symbol" : ""} slider__range`}
+        >
+          {formatPrice(min)}
+        </span>
+        <span
+          className={`${
+            type === "price" ? "price__symbol" : "percentage__symbol"
+          } slider__range`}
+        >
+          {formatPrice(max)}
+        </span>
       </div>
     </div>
   );
