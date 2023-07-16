@@ -29,6 +29,7 @@ function RadioList({ label, setValue, termOfLoan }: RadioListProps) {
       />
       <Radio
         value={30}
+        // selected={termOfLoan}
         selected={termOfLoan}
         text="30 Years"
         onChange={() => handleSelected(30)}

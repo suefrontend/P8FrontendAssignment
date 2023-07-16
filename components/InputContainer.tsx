@@ -36,7 +36,7 @@ function InputContainer({
       <RangeSlider
         min={0}
         max={25}
-        step={0.1}
+        step={1}
         value={annualInterestRate}
         label="interest rate"
         setValue={setAnnualInterestRate}

@@ -3,10 +3,12 @@ import InputContainer from "./InputContainer";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState<number>(250000);
-  const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
-  const [termOfLoan, setTermOfLoan] = useState<number>(25);
-  const [monthlyPayment, setMonthlyPayment] = useState<number>(853.5);
+  const [principal, setPrincipal] = useState("TEST"); //250000
+  const [annualInterestRate, setAnnualInterestRate] = useState(1.5);
+  const [termOfLoan, setTermOfLoan] = useState(25);
+  const [monthlyPayment, setMonthlyPayment] = useState(942.18);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     console.log("principal", principal);
@@ -15,6 +17,7 @@ function Main() {
 
     const getMortgetCalculation = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch("/api/mortgageCalculation", {
           method: "POST",
           headers: {
@@ -27,13 +30,20 @@ function Main() {
           }),
         });
         const data = await response.json();
-        setMonthlyPayment(data.monthlyPayment);
-        console.log("data", data.monthlyPayment);
+        if (response.ok) {
+          setMonthlyPayment(data.monthlyPayment);
+          setErrorMessage("");
+        } else {
+          setMonthlyPayment(0);
+          setErrorMessage(data.error);
+          console.log("data.error", data.error);
+        }
+        setIsLoading(false);
       } catch (error) {
         console.log("Couldn't calculate your mortgage");
       }
     };
-
+    console.log("errorMessage", errorMessage);
     getMortgetCalculation();
   }, [principal, annualInterestRate, termOfLoan]);
 
@@ -55,7 +65,11 @@ function Main() {
           setAnnualInterestRate={setAnnualInterestRate}
           setTermOfLoan={setTermOfLoan}
         />
-        <Result monthlyPayment={monthlyPayment} />
+        <Result
+          monthlyPayment={monthlyPayment}
+          isLoading={isLoading}
+          errorMessage={errorMessage}
+        />
       </div>
     </div>
   );
