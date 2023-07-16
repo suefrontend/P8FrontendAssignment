@@ -3,10 +3,10 @@ import InputContainer from "./InputContainer";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState(250000);
+  const [principal, setPrincipal] = useState("TEST"); //250000
   const [annualInterestRate, setAnnualInterestRate] = useState(1.5);
   const [termOfLoan, setTermOfLoan] = useState(25);
-  const [monthlyPayment, setMonthlyPayment] = useState(853.5);
+  const [monthlyPayment, setMonthlyPayment] = useState(942.18);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

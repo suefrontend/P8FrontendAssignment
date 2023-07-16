@@ -18,7 +18,8 @@ function Result({ monthlyPayment, isLoading }: ResultProps) {
       >
         {priceWithComma.split(".")[0]}
         <span className="result__decimal">
-          {monthlyPayment.toString().split(".")[1]}
+          {/* {monthlyPayment.toString().split(".")[1]} */}
+          {monthlyPayment}
         </span>
       </div>
       <span className="result__text">/month</span>
