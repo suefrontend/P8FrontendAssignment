@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import InputContainer from "./InputContainer";
+import Calculator from "./Calculator";
 import Result from "./Result";
 
 function Main() {
@@ -49,15 +49,13 @@ function Main() {
 
   return (
     <div className="container border border-red-500 lg:h-[80vh] ">
-      <h1 className="text-[32px] text-grey font-medium">
-        Get started with Digital Credit Experience
-      </h1>
+      <h1 className="heading">Get started with Digital Credit Experience</h1>
       <p className="text-lightgrey text-sm mt-1">
         Qualify or apply your mortgage in minutes
       </p>
 
       <div className="calculator">
-        <InputContainer
+        <Calculator
           principal={principal}
           annualInterestRate={annualInterestRate}
           termOfLoan={termOfLoan}

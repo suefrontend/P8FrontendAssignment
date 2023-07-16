@@ -34,6 +34,9 @@ a {
 .main {
   @apply border-blue-700 border flex md:pt-24 max-md:pt-12;
 }
+.heading {
+  @apply md:text-[32px] max-md:text-2xl text-grey font-medium;
+}
 .calculator {
   @apply flex xl:gap-32 max-xl:gap-16 pt-10 max-md:flex-col-reverse;
 }
@@ -61,6 +64,9 @@ a {
 }
 .slider {
   @apply absolute w-full -top-1 h-1 bg-transparent appearance-none pointer-events-none;
+}
+.slider__info {
+  @apply max-md:flex justify-between;
 }
 .slider__range {
   @apply text-xs font-semibold text-lightgrey uppercase;
@@ -96,6 +102,9 @@ input[type="range"]::-webkit-slider-thumb {
 .radio__container {
   user-select: none;
   @apply cursor-pointer flex;
+}
+.radio__wrapper {
+  @apply flex md:flex-col gap-3;
 }
 .radio__label {
   @apply pr-4 text-grey font-semibold;
@@ -148,7 +157,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 .result__container {
-  @apply flex-1 bg-white rounded-[32px] max-md:rounded-[16px] text-center shadow-2xl shadow-gray-400 relative;
+  @apply flex-1 bg-white rounded-[32px] max-md:rounded-[16px] text-center max-md:shadow-sm md:shadow-2xl md:shadow-gray-400 relative;
 }
 .result__price:before {
   content: "$";
@@ -160,7 +169,7 @@ input[type="range"]::-webkit-slider-thumb {
   @apply md:text-[120px] text-grey md:font-black pt-14 pb-8 pl-[1px];
 }
 .result__text {
-  @apply text-lightgrey font-semibold text-xl;
+  @apply text-lightgrey font-semibold text-xl max-md:pt-4 md:pt-14;
 }
 .result__decimal {
   @apply text-xl text-[48px] align-text-top relative top-7 -right-1;

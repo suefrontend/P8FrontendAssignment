@@ -14,9 +14,7 @@ function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
     <div className="result__container">
       {monthlyPayment > 0 ? (
         <>
-          <p className="result__text pt-14">
-            Your total monthly payment will be
-          </p>
+          <p className="result__text">Your total monthly payment will be</p>
           <div className={`${isLoading && "ct-animate-blink"} result__price`}>
             {priceWithComma.split(".")[0]}
             <span className="result__decimal">
