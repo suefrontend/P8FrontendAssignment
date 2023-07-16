@@ -23,7 +23,7 @@ a {
   @apply flex flex-col;
 }
 .container {
-  @apply lg:w-[1126px] md:w-[400px];
+  @apply lg:w-[1126px] md:w-full;
 }
 .header {
   @apply bg-white py-2 shadow-2xl shadow-blue-500/50;
@@ -32,16 +32,10 @@ a {
   @apply w-[8rem] h-[2rem] relative;
 }
 .main {
-  @apply border-blue-700 border flex pt-24;
+  @apply border-blue-700 border flex md:pt-24 max-md:pt-12;
 }
 .calculator {
-  @apply flex gap-32 pt-10;
-}
-.result__container {
-  @apply flex-1 bg-white rounded-[32px] text-center shadow-2xl shadow-gray-400 relative;
-}
-.result__price {
-  @apply pt-8 text-[120px] text-grey;
+  @apply flex xl:gap-32 max-xl:gap-16 pt-10 max-md:flex-col-reverse;
 }
 .btn {
   transition: 0.2s;
@@ -123,26 +117,10 @@ input[type="range"]::-webkit-slider-thumb {
 .unselected-circle {
   @apply w-0 h-0;
 }
-.result__price:before {
-  content: "$";
-  top: 6px;
-  left: -2px;
-  @apply text-[48px] relative align-text-top;
-}
-.result__price {
-  @apply text-[106px] pt-14 pb-8 pl-[1px];
-}
-.result__text {
-  @apply text-lightgrey font-semibold text-xl;
-}
-.result__decimal {
-  @apply text-xl text-[48px] align-text-top relative top-7 -right-1;
-}
 .ct-animate-blink {
   animation: blink 0.8s infinite;
   animation-fill-mode: both;
 }
-
 @keyframes blink {
   0% {
     opacity: 0.16;
@@ -168,4 +146,22 @@ input[type="range"]::-webkit-slider-thumb {
   100% {
     opacity: 0.8;
   }
+}
+.result__container {
+  @apply flex-1 bg-white rounded-[32px] max-md:rounded-[16px] text-center shadow-2xl shadow-gray-400 relative;
+}
+.result__price:before {
+  content: "$";
+  top: 6px;
+  left: -2px;
+  @apply text-[48px] relative align-text-top;
+}
+.result__price {
+  @apply md:text-[120px] text-grey md:font-black pt-14 pb-8 pl-[1px];
+}
+.result__text {
+  @apply text-lightgrey font-semibold text-xl;
+}
+.result__decimal {
+  @apply text-xl text-[48px] align-text-top relative top-7 -right-1;
 }
