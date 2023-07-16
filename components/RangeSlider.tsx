@@ -27,13 +27,14 @@ function RangeSlider({
   return (
     <div className="mb-8">
       <span className="calculator__label">{label}</span>
-      <p
-        className={`${
-          type === "price" ? "slider__price" : "slider__percentage ml-[12px]"
-        } slider__value`}
-      >
-        {value}
-      </p>
+      {type === "price" && (
+        <p className="slider__price slider__value">
+          {value.toLocaleString("en-US")}
+        </p>
+      )}
+      {type === "percentage" && (
+        <p className="slider__percentage ml-[12px] slider__value">{value}</p>
+      )}
 
       <Slider
         size="small"
