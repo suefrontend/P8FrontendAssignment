@@ -27,20 +27,20 @@ function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
           {/* Large screen */}
           {/* Small screen */}
           <div className="md:hidden">
-            <div className="flex items-center justify-between">
-              <div
-                className={`${isLoading && "ct-animate-blink"} result__price`}
-              >
-                <span className="text-[36px] mr-2">
-                  {priceWithComma.split(".")[0]}
-                  <span className="result__decimal">
-                    {monthlyPayment.toString().split(".")[1]}
-                  </span>
+            <div
+              className={`mb-3 ${
+                isLoading && "ct-animate-blink"
+              } result__price`}
+            >
+              <span className="text-[42px] mr-2">
+                {priceWithComma.split(".")[0]}
+                <span className="result__decimal">
+                  {monthlyPayment.toString().split(".")[1]}
                 </span>
-                <span className="result__text">/month</span>
-              </div>
-              <Button>Apply Today</Button>
+              </span>
+              <span className="result__text">/month</span>
             </div>
+            <Button>Apply Today</Button>
           </div>
           {/* Small screen */}
         </>
