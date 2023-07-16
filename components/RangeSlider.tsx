@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { formatPrice } from "../utils/formatPrice";
 import { Slider } from "@mui/material";
 
 interface SliderProps {
@@ -27,13 +27,14 @@ function RangeSlider({
   return (
     <div className="mb-8">
       <span className="calculator__label">{label}</span>
-      <p
-        className={`${
-          type === "price" ? "slider__price" : "slider__percentage ml-[12px]"
-        } slider__value`}
-      >
-        {value}
-      </p>
+      {type === "price" && (
+        <p className="slider__price slider__value">
+          {value.toLocaleString("en-US")}
+        </p>
+      )}
+      {type === "percentage" && (
+        <p className="slider__percentage ml-[12px] slider__value">{value}</p>
+      )}
 
       <Slider
         size="small"
@@ -46,8 +47,18 @@ function RangeSlider({
       />
 
       <div className="flex justify-between pt-2">
-        <span className="slider__range">{min}</span>
-        <span className="slider__range">{max}</span>
+        <span
+          className={`${type === "price" ? "price__symbol" : ""} slider__range`}
+        >
+          {formatPrice(min)}
+        </span>
+        <span
+          className={`${
+            type === "price" ? "price__symbol" : "percentage__symbol"
+          } slider__range`}
+        >
+          {formatPrice(max)}
+        </span>
       </div>
     </div>
   );

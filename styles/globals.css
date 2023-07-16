@@ -74,6 +74,12 @@ a {
 .slider__value {
   @apply text-[32px] py-1 pl-[1px] text-grey;
 }
+.price__symbol:before {
+  content: "$";
+}
+.percentage__symbol:after {
+  content: "%";
+}
 .slider__price:before {
   content: "$";
   vertical-align: text-top;
