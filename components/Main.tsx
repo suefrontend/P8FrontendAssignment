@@ -3,10 +3,11 @@ import InputContainer from "./InputContainer";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState<number>(250000);
-  const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
-  const [termOfLoan, setTermOfLoan] = useState<number>(25);
-  const [monthlyPayment, setMonthlyPayment] = useState<number>(853.5);
+  const [principal, setPrincipal] = useState(250000);
+  const [annualInterestRate, setAnnualInterestRate] = useState(1.5);
+  const [termOfLoan, setTermOfLoan] = useState(25);
+  const [monthlyPayment, setMonthlyPayment] = useState(853.5);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     console.log("principal", principal);
@@ -15,6 +16,7 @@ function Main() {
 
     const getMortgetCalculation = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch("/api/mortgageCalculation", {
           method: "POST",
           headers: {
@@ -28,6 +30,7 @@ function Main() {
         });
         const data = await response.json();
         setMonthlyPayment(data.monthlyPayment);
+        setIsLoading(false);
         console.log("data", data.monthlyPayment);
       } catch (error) {
         console.log("Couldn't calculate your mortgage");
@@ -55,7 +58,7 @@ function Main() {
           setAnnualInterestRate={setAnnualInterestRate}
           setTermOfLoan={setTermOfLoan}
         />
-        <Result monthlyPayment={monthlyPayment} />
+        <Result monthlyPayment={monthlyPayment} isLoading={isLoading} />
       </div>
     </div>
   );

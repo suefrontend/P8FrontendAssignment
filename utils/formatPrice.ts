@@ -1,6 +1,3 @@
-export const addCommaToPrice = (value: number) => {
-  //
-};
 export const formatPrice = (value: number) => {
   let suffix = "";
   let division = value / 1000;
