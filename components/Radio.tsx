@@ -2,7 +2,7 @@ interface RadioProps {
   value: number;
   selected: number;
   text: string;
-  onChange: () => void;
+  onChange: (value: number) => void;
 }
 
 function Radio({ value, selected, text, onChange }: RadioProps) {

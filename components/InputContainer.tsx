@@ -43,7 +43,6 @@ function InputContainer({
         type="percentage"
       />
       <RadioList
-        handleTerm={handleTerm}
         setValue={setTermOfLoan}
         termOfLoan={termOfLoan}
         label="Period"

@@ -3,13 +3,13 @@ import Radio from "./Radio";
 
 interface RadioListProps {
   label: string;
-  handleTerm: () => void;
+  setValue: (value: number) => void;
   termOfLoan: number;
 }
 
-function RadioList({ label, handleTerm, termOfLoan }: RadioListProps) {
-  const handleSelected = (value) => {
-    handleTerm(value);
+function RadioList({ label, setValue, termOfLoan }: RadioListProps) {
+  const handleSelected = (value: number) => {
+    setValue(value);
   };
 
   return (

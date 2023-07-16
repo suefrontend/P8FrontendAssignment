@@ -20,7 +20,7 @@ function RangeSlider({
   value,
   setValue,
 }: SliderProps) {
-  const handleSlide = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSlide = (e: any) => {
     setValue(parseInt(e.target.value));
   };
 
