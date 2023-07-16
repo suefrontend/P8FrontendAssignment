@@ -32,6 +32,7 @@ function InputContainer({
         value={principal}
         label="purchase price"
         setValue={setPrincipal}
+        type="price"
       />
       <RangeSlider
         min={0}
@@ -40,6 +41,7 @@ function InputContainer({
         value={annualInterestRate}
         label="interest rate"
         setValue={setAnnualInterestRate}
+        type="percentage"
       />
       <RadioList
         handleTerm={handleTerm}

@@ -21,7 +21,13 @@ function RangeSlider({
   return (
     <div className="mb-8">
       <span className="calculator__label">{label}</span>
-      <p>{value}</p>
+      <p
+        className={`${
+          type === "price" ? "slider__price" : "slider__percentage ml-[12px]"
+        } slider__value`}
+      >
+        {value}
+      </p>
 
       <Slider
         size="small"

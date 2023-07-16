@@ -28,8 +28,8 @@ function Result({monthlyPayment}) {
           Your total monthly payment will be
         </p>
         <div className="result__price font-black">
-          {monthlyPayment.split(".")[0]}
-          <span className="result__decimal">{monthlyPayment.split(".")[1]}</span>
+          {monthlyPayment.toString().split(".")[0]}
+          <span className="result__decimal">{monthlyPayment.toString().split(".")[1]}</span>
         </div>
         <span className="text-lightgrey font-semibold text-xl">/month</span>
         <CustomButton />

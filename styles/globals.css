@@ -70,6 +70,9 @@ a {
 .slider__range {
   @apply text-xs font-semibold text-lightgrey uppercase;
 }
+.slider__value {
+  @apply text-[32px] py-1 pl-[1px] text-grey;
+}
 .slider__price:before {
   content: "$";
   vertical-align: text-top;
@@ -77,8 +80,8 @@ a {
   left: -2px;
   @apply text-[20px] relative;
 }
-.slider__price {
-  @apply text-[32px] py-1 pl-[1px];
+.slider__percentage:after {
+  content: "%";
 }
 input[type="range"]::-webkit-slider-thumb {
   pointer-events: auto;
