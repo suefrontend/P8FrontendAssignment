@@ -15,7 +15,7 @@ function RadioList({ label, setValue, termOfLoan }: RadioListProps) {
   return (
     <div className="radio">
       <span className="calculator__label">{label}</span>
-      <div className="radio__wrapper mt-2">
+      <div className="radio__wrapper mt-3">
         <Radio
           value={20}
           selected={termOfLoan}

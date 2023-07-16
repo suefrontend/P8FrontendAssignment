@@ -32,7 +32,7 @@ function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
                 isLoading && "ct-animate-blink"
               } result__price`}
             >
-              <span className="text-[42px] mr-2">
+              <span className="text-[52px] mr-2">
                 {priceWithComma.split(".")[0]}
                 <span className="result__decimal">
                   {monthlyPayment.toString().split(".")[1]}
@@ -50,8 +50,8 @@ function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
             isLoading && "ct-animate-blink-darker"
           } flex flex-col items-center justify-center gap-8`}
         >
-          <BsFillExclamationTriangleFill size={142} className="text-gray-300" />
-          <span className="text-lightgrey w-2/3 leading-relaxed">
+          <BsFillExclamationTriangleFill className="result__icon" />
+          <span className="text-lightgrey md:w-2/3 leading-relaxed">
             {errorMessage}
           </span>
         </div>

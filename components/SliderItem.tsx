@@ -47,7 +47,7 @@ function SliderItem({
         valueLabelDisplay="auto"
       />
 
-      <div className="flex justify-between md:pt-2">
+      <div className="flex justify-between -mt-2">
         <span
           className={`${type === "price" ? "price__symbol" : ""} slider__range`}
         >
