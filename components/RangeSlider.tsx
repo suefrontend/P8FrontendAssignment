@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent } from "react";
+import { SliderProps } from "../types";
 import { Slider } from "@mui/material";
 
 function RangeSlider({
@@ -7,14 +8,10 @@ function RangeSlider({
   max,
   step,
   label,
-  annualInterestRate,
-  principal,
-  handlePrincipal,
-  handleInterestRate,
   value,
   setValue,
-}) {
-  const handleSlide = (e) => {
+}: SliderProps) {
+  const handleSlide = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
@@ -40,8 +37,8 @@ function RangeSlider({
       />
 
       <div className="flex justify-between pt-2">
-        <small className="slider__range">{min}</small>
-        <small className="slider__range">{max}</small>
+        <span className="slider__range">{min}</span>
+        <span className="slider__range">{max}</span>
       </div>
     </div>
   );

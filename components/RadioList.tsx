@@ -1,7 +1,13 @@
 import { useState } from "react";
 import Radio from "./Radio";
 
-function RadioList({ label, handleTerm, termOfLoan }) {
+interface RadioListProps {
+  label: string;
+  handleTerm: () => void;
+  termOfLoan: number;
+}
+
+function RadioList({ label, handleTerm, termOfLoan }: RadioListProps) {
   const handleSelected = (value) => {
     handleTerm(value);
   };

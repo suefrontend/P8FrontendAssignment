@@ -1,4 +1,6 @@
-function Radio({ value, selected, text, onChange }) {
+import { RadioProps } from "../types";
+
+function Radio({ value, selected, text, onChange }: RadioProps) {
   return (
     <div
       className="radio__container"
