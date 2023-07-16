@@ -129,11 +129,11 @@ input[type="range"]::-webkit-slider-thumb {
   left: -2px;
   @apply text-[48px] relative align-text-top;
 }
+.result__price {
+  @apply text-[106px] pt-14 pb-8 pl-[1px];
+}
 .result__text {
   @apply text-lightgrey font-semibold text-xl;
-}
-.result__price {
-  @apply text-[106px] pt-8 pb-4 pl-[1px];
 }
 .result__decimal {
   @apply text-xl text-[48px] align-text-top relative top-7 -right-1;
@@ -152,5 +152,20 @@ input[type="range"]::-webkit-slider-thumb {
   }
   100% {
     opacity: 0.16;
+  }
+}
+.ct-animate-blink-darker {
+  animation: blink-darker 0.8s infinite;
+  animation-fill-mode: both;
+}
+@keyframes blink-darker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
   }
 }

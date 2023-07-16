@@ -8,6 +8,7 @@ function Main() {
   const [termOfLoan, setTermOfLoan] = useState(25);
   const [monthlyPayment, setMonthlyPayment] = useState(942.18);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     console.log("principal", principal);
@@ -29,14 +30,20 @@ function Main() {
           }),
         });
         const data = await response.json();
-        setMonthlyPayment(data.monthlyPayment);
+        if (response.ok) {
+          setMonthlyPayment(data.monthlyPayment);
+          setErrorMessage("");
+        } else {
+          setMonthlyPayment(0);
+          setErrorMessage(data.error);
+          console.log("data.error", data.error);
+        }
         setIsLoading(false);
-        console.log("data", data.monthlyPayment);
       } catch (error) {
         console.log("Couldn't calculate your mortgage");
       }
     };
-
+    console.log("errorMessage", errorMessage);
     getMortgetCalculation();
   }, [principal, annualInterestRate, termOfLoan]);
 
@@ -58,7 +65,11 @@ function Main() {
           setAnnualInterestRate={setAnnualInterestRate}
           setTermOfLoan={setTermOfLoan}
         />
-        <Result monthlyPayment={monthlyPayment} isLoading={isLoading} />
+        <Result
+          monthlyPayment={monthlyPayment}
+          isLoading={isLoading}
+          errorMessage={errorMessage}
+        />
       </div>
     </div>
   );
