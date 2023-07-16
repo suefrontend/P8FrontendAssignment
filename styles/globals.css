@@ -122,6 +122,9 @@ input[type="range"]::-webkit-slider-thumb {
   left: -2px;
   @apply text-[48px] relative align-text-top;
 }
+.result__text {
+  @apply text-lightgrey font-semibold text-xl;
+}
 .result__price {
   @apply text-[106px] pt-8 pb-4 pl-[1px];
 }

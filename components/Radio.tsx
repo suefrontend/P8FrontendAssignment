@@ -1,4 +1,11 @@
-function Radio({ value, selected, text, onChange }) {
+interface RadioProps {
+  value: number;
+  selected: number;
+  text: string;
+  onChange: (value: number) => void;
+}
+
+function Radio({ value, selected, text, onChange }: RadioProps) {
   return (
     <div
       className="radio__container"
