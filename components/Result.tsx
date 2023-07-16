@@ -1,6 +1,6 @@
 const CustomButton = () => <button className="btn">Apply today</button>;
 
-function Result() {
+function Result({monthlyPayment}) {
   function handleSubmit(e) {
     e.preventDefault();
     const postData = async () => {
@@ -28,8 +28,8 @@ function Result() {
           Your total monthly payment will be
         </p>
         <div className="result__price font-black">
-          853
-          <span className="result__decimal">50</span>
+          {monthlyPayment.split(".")[0]}
+          <span className="result__decimal">{monthlyPayment.split(".")[1]}</span>
         </div>
         <span className="text-lightgrey font-semibold text-xl">/month</span>
         <CustomButton />

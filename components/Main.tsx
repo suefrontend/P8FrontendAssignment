@@ -27,8 +27,8 @@ function Main() {
           }),
         });
         const data = await response.json();
-        // setMonthlyPayment(monthlyPayment);
-        console.log("data", data);
+        setMonthlyPayment(data.monthlyPayment);
+        console.log("data", data.monthlyPayment);
       } catch (error) {
         console.log("Couldn't calculate your mortgage");
       }
@@ -55,7 +55,7 @@ function Main() {
           setAnnualInterestRate={setAnnualInterestRate}
           setTermOfLoan={setTermOfLoan}
         />
-        <Result />
+        <Result monthlyPayment={monthlyPayment} />
       </div>
     </div>
   );
