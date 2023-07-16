@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { formatPrice } from "../utils/formatPrice";
 import { Slider } from "@mui/material";
 
 interface SliderProps {
@@ -46,8 +46,8 @@ function RangeSlider({
       />
 
       <div className="flex justify-between pt-2">
-        <span className="slider__range">{min}</span>
-        <span className="slider__range">{max}</span>
+        <span className="slider__range">{formatPrice(min)}</span>
+        <span className="slider__range">{formatPrice(max)}</span>
       </div>
     </div>
   );
