@@ -1,11 +1,18 @@
 import SliderItem from "./SliderItem";
 
+interface SliderListProps {
+  principal: number;
+  annualInterestRate: number;
+  setPrincipal: (value: number) => void;
+  setAnnualInterestRate: (value: number) => void;
+}
+
 const SliderList = ({
   principal,
-  setPrincipal,
   annualInterestRate,
+  setPrincipal,
   setAnnualInterestRate,
-}) => {
+}: SliderListProps) => {
   return (
     <>
       <SliderItem

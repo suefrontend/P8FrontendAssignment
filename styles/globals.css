@@ -42,7 +42,7 @@ a {
 }
 .btn {
   transition: 0.2s;
-  @apply bg-purple rounded-full text-white py-5 px-10 capitalize text-xl block mx-auto absolute -translate-x-1/2 left-1/2 -bottom-8;
+  @apply bg-purple md:rounded-full max-md:rounded-xl text-white md:py-5 md:px-10 max-md:p-2 max-md:px-4 capitalize text-xl block md:mx-auto md:absolute md:-translate-x-1/2 md:left-1/2 md:-bottom-8 max-md:text-base;
 }
 .btn:hover {
   @apply -bottom-6;
@@ -107,7 +107,7 @@ input[type="range"]::-webkit-slider-thumb {
   @apply flex md:flex-col gap-3;
 }
 .radio__label {
-  @apply pr-4 text-grey font-semibold;
+  @apply pr-4 text-grey font-semibold max-md:text-sm max-md:pt-1;
 }
 .radio-outer-circle {
   width: 24px;
@@ -157,20 +157,18 @@ input[type="range"]::-webkit-slider-thumb {
   }
 }
 .result__container {
-  @apply flex-1 bg-white rounded-[32px] max-md:rounded-[16px] text-center max-md:shadow-sm md:shadow-2xl md:shadow-gray-400 relative;
+  @apply flex-1 bg-white rounded-[32px] max-md:rounded-[16px] md:text-center max-md:shadow-sm md:shadow-2xl md:shadow-gray-400 relative max-md:p-6;
 }
 .result__price:before {
   content: "$";
-  top: 6px;
-  left: -2px;
-  @apply text-[48px] relative align-text-top;
+  @apply md:text-[48px] md:top-[6px] max-md:-top-[16px] -left-[2px] relative md:align-text-top;
 }
 .result__price {
-  @apply md:text-[120px] text-grey md:font-black pt-14 pb-8 pl-[1px];
+  @apply md:text-[120px] md:font-black max-md:font-bold text-grey md:pt-14 md:pb-8 pl-[1px];
 }
 .result__text {
-  @apply text-lightgrey font-semibold text-xl max-md:pt-4 md:pt-14;
+  @apply text-lightgrey font-semibold md:text-xl max-md:mb-6 md:pt-14;
 }
 .result__decimal {
-  @apply text-xl text-[48px] align-text-top relative top-7 -right-1;
+  @apply text-xl md:text-[48px] max-md:text-[16px] align-text-top relative md:top-7 -right-1;
 }

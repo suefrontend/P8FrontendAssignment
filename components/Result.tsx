@@ -1,11 +1,10 @@
 import { BsFillExclamationTriangleFill } from "react-icons/bs";
+import Button from "./Button";
 
 interface ResultProps {
-  monthlyPayment: string;
+  monthlyPayment: number;
   isLoading: boolean;
 }
-
-const CustomButton = () => <button className="btn">Apply today</button>;
 
 function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
   const priceWithComma = parseInt(monthlyPayment).toLocaleString("en-US");
@@ -15,13 +14,35 @@ function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
       {monthlyPayment > 0 ? (
         <>
           <p className="result__text">Your total monthly payment will be</p>
-          <div className={`${isLoading && "ct-animate-blink"} result__price`}>
-            {priceWithComma.split(".")[0]}
-            <span className="result__decimal">
-              {monthlyPayment.toString().split(".")[1]}
-            </span>
+          {/* Large screen */}
+          <div className="max-md:hidden">
+            <div className={`${isLoading && "ct-animate-blink"} result__price`}>
+              {priceWithComma.split(".")[0]}
+              <span className="result__decimal">
+                {monthlyPayment.toString().split(".")[1]}
+              </span>
+            </div>
+            <span className="result__text">/month</span>
           </div>
-          <span className="result__text">/month</span>
+          {/* Large screen */}
+          {/* Small screen */}
+          <div className="md:hidden">
+            <div className="flex items-center justify-between">
+              <div
+                className={`${isLoading && "ct-animate-blink"} result__price`}
+              >
+                <span className="text-[36px] mr-2">
+                  {priceWithComma.split(".")[0]}
+                  <span className="result__decimal">
+                    {monthlyPayment.toString().split(".")[1]}
+                  </span>
+                </span>
+                <span className="result__text">/month</span>
+              </div>
+              <Button>Apply Today</Button>
+            </div>
+          </div>
+          {/* Small screen */}
         </>
       ) : (
         <div
@@ -35,7 +56,9 @@ function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
           </span>
         </div>
       )}
-      <CustomButton />
+      <span className="max-md:hidden">
+        <Button>Apply Today</Button>
+      </span>
     </div>
   );
 }
