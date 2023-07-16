@@ -11,7 +11,6 @@ body {
   font-family: "Inter", sans-serif;
   background: #e5ecf9;
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -23,7 +22,7 @@ a {
   @apply flex flex-col;
 }
 .container {
-  @apply lg:w-[1126px] md:w-[400px];
+  @apply lg:w-[1126px] md:w-full max-md:px-3 max-md:pb-4;
 }
 .header {
   @apply bg-white py-2 shadow-2xl shadow-blue-500/50;
@@ -32,31 +31,31 @@ a {
   @apply w-[8rem] h-[2rem] relative;
 }
 .main {
-  @apply border-blue-700 border flex pt-24;
+  @apply border-blue-700 border flex md:pt-14 xl:pt-20 max-md:pt-12;
 }
-.calculator {
-  @apply flex gap-32 pt-10;
-}
-.result__container {
-  @apply flex-1 bg-white rounded-[32px] text-center shadow-2xl shadow-gray-400 relative;
-}
-.result__price {
-  @apply pt-8 text-[120px] text-grey;
+.heading {
+  @apply md:text-[32px] max-md:text-xl text-grey font-medium;
 }
 .btn {
   transition: 0.2s;
-  @apply bg-purple rounded-full text-white py-5 px-10 capitalize text-xl block mx-auto absolute -translate-x-1/2 left-1/2 -bottom-8;
+  @apply bg-purple rounded-full text-white md:py-5 md:px-6 lg:px-10 max-md:p-2 max-md:px-4 capitalize text-2xl block md:mx-auto md:absolute md:-translate-x-1/2 md:left-1/2 md:-bottom-8 max-md:text-lg max-md:w-full;
 }
 .btn:hover {
   @apply -bottom-6;
 }
+.calculator {
+  @apply flex xl:gap-32 lg:gap-14 max-lg:gap-10 md:pt-10 max-md:pt-6 max-md:flex-col-reverse;
+}
 .calculator__label {
   @apply text-xs font-semibold text-lightgrey capitalize;
 }
+.price__symbol:before {
+  content: "$";
+}
+.percentage__symbol:after {
+  content: "%";
+}
 .MuiSlider-thumb {
-  color: green;
-  border: 1px solid #000;
-
   @apply text-white border-2 border-bluebg;
 }
 .MuiSlider-rail {
@@ -68,17 +67,14 @@ a {
 .slider {
   @apply absolute w-full -top-1 h-1 bg-transparent appearance-none pointer-events-none;
 }
+.slider__info {
+  @apply max-md:flex justify-between -mb-1;
+}
 .slider__range {
   @apply text-xs font-semibold text-lightgrey uppercase;
 }
 .slider__value {
-  @apply text-[32px] py-1 pl-[1px] text-grey;
-}
-.price__symbol:before {
-  content: "$";
-}
-.percentage__symbol:after {
-  content: "%";
+  @apply md:text-[32px] max-md:text-[26px] md:pt-1 pl-[1px] text-grey;
 }
 .slider__price:before {
   content: "$";
@@ -90,32 +86,26 @@ a {
 .slider__percentage:after {
   content: "%";
 }
-input[type="range"]::-webkit-slider-thumb {
-  pointer-events: auto;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  -webkit-appearance: none;
-  border: 2px solid rgba(21, 97, 209, 0.7);
-  @apply bg-white;
-}
 .radio__container {
   user-select: none;
   @apply cursor-pointer flex;
 }
+.radio__wrapper {
+  @apply flex md:flex-col gap-4;
+}
 .radio__label {
-  @apply pr-4 text-grey font-semibold;
+  @apply pr-4 text-grey font-semibold md:text-xl max-md:text-lg max-md:pt-1;
 }
 .radio-outer-circle {
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  min-height: 24px;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
   border: 1px solid #4c3272;
   @apply flex items-center justify-center rounded-full bg-white mr-3;
 }
 .radio-inner-circle {
-  @apply bg-purple rounded-full w-[16px] h-[16px];
+  @apply bg-purple rounded-full w-[22px] h-[22px];
 }
 .unselected {
   @apply border border-lightgrey;
@@ -123,26 +113,29 @@ input[type="range"]::-webkit-slider-thumb {
 .unselected-circle {
   @apply w-0 h-0;
 }
+.result__container {
+  @apply md:w-[26rem] lg:w-[35rem] xl:w-[35rem] bg-white rounded-[32px] max-md:rounded-[16px] text-center max-md:shadow-lg md:shadow-2xl md:shadow-gray-400 relative max-md:p-6;
+}
 .result__price:before {
   content: "$";
-  top: 6px;
-  left: -2px;
-  @apply text-[48px] relative align-text-top;
+  @apply md:text-[48px] max-md:text-[28px] md:top-[6px] max-md:-top-[18px] -left-[2px] relative md:align-text-top;
 }
 .result__price {
-  @apply text-[106px] pt-14 pb-8 pl-[1px];
+  @apply 2xl:text-[120px] lg:text-[110px] md:text-[80px] md:font-black max-md:font-bold text-grey md:pt-16 xl:pt-10 md:pb-6 pl-[1px];
 }
 .result__text {
-  @apply text-lightgrey font-semibold text-xl;
+  @apply text-lightgrey font-semibold md:text-xl max-md:mb-4 md:pt-14;
 }
 .result__decimal {
-  @apply text-xl text-[48px] align-text-top relative top-7 -right-1;
+  @apply text-xl md:text-[48px] max-md:text-[22px] align-text-top relative max-md:top-1 md:top-7 -right-1;
+}
+.result__icon {
+  @apply text-gray-300 max-md:text-[60px] md:text-[142px] max-md:mt-4;
 }
 .ct-animate-blink {
   animation: blink 0.8s infinite;
   animation-fill-mode: both;
 }
-
 @keyframes blink {
   0% {
     opacity: 0.16;

@@ -11,7 +11,7 @@ interface SliderProps {
   setValue: (value: number) => void;
 }
 
-function RangeSlider({
+function SliderItem({
   type,
   min,
   max,
@@ -26,16 +26,17 @@ function RangeSlider({
 
   return (
     <div className="mb-8">
-      <span className="calculator__label">{label}</span>
-      {type === "price" && (
-        <p className="slider__price slider__value">
-          {value.toLocaleString("en-US")}
-        </p>
-      )}
-      {type === "percentage" && (
-        <p className="slider__percentage ml-[12px] slider__value">{value}</p>
-      )}
-
+      <div className="slider__info">
+        <span className="calculator__label">{label}</span>
+        {type === "price" && (
+          <p className="slider__price slider__value">
+            {value.toLocaleString("en-US")}
+          </p>
+        )}
+        {type === "percentage" && (
+          <p className="slider__percentage ml-[12px] slider__value">{value}</p>
+        )}
+      </div>
       <Slider
         size="small"
         min={min}
@@ -46,7 +47,7 @@ function RangeSlider({
         valueLabelDisplay="auto"
       />
 
-      <div className="flex justify-between pt-2">
+      <div className="flex justify-between -mt-2">
         <span
           className={`${type === "price" ? "price__symbol" : ""} slider__range`}
         >
@@ -64,4 +65,4 @@ function RangeSlider({
   );
 }
 
-export default RangeSlider;
+export default SliderItem;
