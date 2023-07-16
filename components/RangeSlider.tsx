@@ -1,37 +1,47 @@
 import { useEffect, useRef, useState } from "react";
+import { Slider } from "@mui/material";
 
-function RangeSlider({ initialValue, min, max, step, label }) {
-  const [price, setPrice] = useState(initialValue);
-
-  const handleChange = (e) => {
-    setPrice(e.target.value);
+function RangeSlider({
+  type,
+  min,
+  max,
+  step,
+  label,
+  annualInterestRate,
+  principal,
+  handlePrincipal,
+  handleInterestRate,
+  value,
+  setValue,
+}) {
+  const handleSlide = (e) => {
+    setValue(e.target.value);
   };
 
   return (
     <div className="mb-8">
       <span className="calculator__label">{label}</span>
-      <p className="slider__price">{price.toLocaleString()}</p>
-      <div className="relative h-[3px] rounded-md bg-gray-300">
-        <div
-          className="absolute h-[3px] bg-bluebg rounded"
-          style={{ width: `${((price - min) / (max - min)) * 100}%` }}
-        ></div>
-      </div>
-      <div className="relative">
-        <input
-          onChange={handleChange}
-          type="range"
-          initialValue={initialValue}
-          min={min}
-          step={step}
-          max={max}
-          value={price}
-          className="absolute w-full -top-1 h-1 bg-transparent appearance-none pointer-events-none"
-        />
-      </div>
+      <p
+        className={`${
+          type === "price" ? "slider__price" : "slider__percentage ml-[12px]"
+        } slider__value`}
+      >
+        {value}
+      </p>
+
+      <Slider
+        size="small"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={handleSlide}
+        valueLabelDisplay="auto"
+      />
+
       <div className="flex justify-between pt-2">
-        <span className="slider__range">$50K</span>
-        <span className="slider__range">$2.5M</span>
+        <small className="slider__range">{min}</small>
+        <small className="slider__range">{max}</small>
       </div>
     </div>
   );
