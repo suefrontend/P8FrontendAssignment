@@ -23,6 +23,15 @@ function SliderItem({
   const handleSlide = (e: any) => {
     setValue(parseInt(e.target.value));
   };
+  const valueLabelFormat = (value: number) => {
+    if (type === "price") {
+      return `$${value.toLocaleString("en-US")}`;
+    }
+    if (type === "percentage") {
+      return `${value}%`;
+    }
+    return value.toString();
+  };
 
   return (
     <div className="mb-8">
@@ -45,7 +54,7 @@ function SliderItem({
         value={value}
         onChange={handleSlide}
         valueLabelDisplay="auto"
-        valueLabelFormat={(value) => value.toLocaleString("en-US")}
+        valueLabelFormat={valueLabelFormat}
         aria-labelledby={`${label}-slider`}
         getAriaValueText={(value) => value.toString()}
       />
