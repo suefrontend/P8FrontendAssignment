@@ -45,6 +45,9 @@ function SliderItem({
         value={value}
         onChange={handleSlide}
         valueLabelDisplay="auto"
+        valueLabelFormat={(value) => value.toLocaleString("en-US")}
+        aria-labelledby={`${label}-slider`}
+        getAriaValueText={(value) => value.toString()}
       />
 
       <div className="flex justify-between -mt-2">
