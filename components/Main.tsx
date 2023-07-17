@@ -12,11 +12,6 @@ function Main() {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   useEffect(() => {
-    console.log("principal", principal);
-    console.log("annualInterestRate", annualInterestRate);
-    console.log("termOfLoan", termOfLoan);
-    console.log("monthlyPayment", monthlyPayment);
-
     const getMortgetCalculation = async () => {
       try {
         setIsLoading(true);
@@ -40,7 +35,7 @@ function Main() {
   }, [principal, annualInterestRate, termOfLoan, monthlyPayment, errorMessage]);
 
   return (
-    <div className="container border border-red-500 lg:h-[80vh] ">
+    <div className="container lg:h-[80vh] ">
       <h1 className="heading">Get started with Digital Credit Experience</h1>
       <p className="text-lightgrey text-sm mt-1">
         Qualify or apply your mortgage in minutes
