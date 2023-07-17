@@ -1,3 +1,5 @@
+import React from "react";
+
 interface RadioProps {
   value: number;
   selected: number;
@@ -5,26 +7,34 @@ interface RadioProps {
   onChange: (value: number) => void;
 }
 
-function Radio({ value, selected, text, onChange }: RadioProps) {
+function RadioItem({ value, selected, text, onChange }: RadioProps) {
+  const isChecked = value === selected;
+
+  const handleRadioClick = () => {
+    onChange(value);
+  };
+
   return (
-    <div
-      className="radio__container"
-      onClick={() => {
-        onChange(value);
-      }}
-    >
-      <div
-        className={`radio-outer-circle ${value !== selected && "unselected"}`}
+    <div className="radio__wrapper">
+      <input
+        type="radio"
+        value={value}
+        id={`radio-${value}`}
+        checked={isChecked}
+        onChange={handleRadioClick}
+        className="radio__input"
+        aria-checked={isChecked}
+        aria-labelledby={`radio-${value}-label`}
+      />
+      <label
+        htmlFor={`radio-${value}`}
+        id={`radio-${value}-label`}
+        className="radio__label"
       >
-        <div
-          className={`radio-inner-circle ${
-            value !== selected && "unselected-circle"
-          }`}
-        />
-      </div>
-      <div className="radio__label">{text}</div>
+        {text} Years
+      </label>
     </div>
   );
 }
 
-export default Radio;
+export default RadioItem;
