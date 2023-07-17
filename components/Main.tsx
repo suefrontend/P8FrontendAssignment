@@ -4,7 +4,7 @@ import Calculator from "./Calculator";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState<number>("test"); //850000
+  const [principal, setPrincipal] = useState<number>(850000); //850000
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
   const [monthlyPayment, setMonthlyPayment] = useState<number>(3203.42);
@@ -24,22 +24,18 @@ function Main() {
 
         const response = await axios.post(url);
 
-        console.log("response", response);
-
         if (response.status === 200) {
           const { monthlyPayment } = response.data;
           setMonthlyPayment(monthlyPayment);
           setErrorMessage("");
-        } else {
-          setMonthlyPayment(0);
-          setErrorMessage(response.error);
         }
         setIsLoading(false);
-      } catch (error) {
-        console.log("Couldn't calculate your mortgage");
+      } catch (error: any) {
+        setMonthlyPayment(0);
+        setErrorMessage(error.response.data.error);
+        setIsLoading(false);
       }
     };
-    console.log("errorMessage", errorMessage);
     getMortgetCalculation();
   }, [principal, annualInterestRate, termOfLoan, monthlyPayment, errorMessage]);
 
