@@ -19,7 +19,7 @@ function Calculator({
   setTermOfLoan,
 }: CalculatorProps) {
   return (
-    <div className="flex-1 border border-black">
+    <div className="flex-1">
       <SliderList
         principal={principal}
         annualInterestRate={annualInterestRate}

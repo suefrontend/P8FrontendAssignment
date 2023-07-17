@@ -18,7 +18,7 @@ export default function handler(
 ) {
   if (req.method === "POST") {
     // Changed from req.query to req.body
-    const { principal, annualInterestRate, termOfLoan } = req.body;
+    const { principal, annualInterestRate, termOfLoan } = req.query;
     const values = calculatePayment({
       principal: parseInt(principal.toString()),
       annualInterestRate: parseInt(annualInterestRate.toString()),

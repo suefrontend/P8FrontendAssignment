@@ -31,7 +31,7 @@ a {
   @apply w-[8rem] h-[2rem] relative;
 }
 .main {
-  @apply border-blue-700 border flex md:pt-14 2xl:pt-20 xl:pt-14 max-md:pt-12;
+  @apply flex md:pt-14 2xl:pt-20 xl:pt-14 max-md:pt-12;
 }
 .heading {
   @apply md:text-[32px] max-md:text-xl text-grey font-medium;
