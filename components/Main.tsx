@@ -14,6 +14,7 @@ function Main() {
     console.log("principal", principal);
     console.log("annualInterestRate", annualInterestRate);
     console.log("termOfLoan", termOfLoan);
+    console.log("monthlyPayment", monthlyPayment);
 
     const getMortgetCalculation = async () => {
       try {
@@ -36,7 +37,6 @@ function Main() {
         } else {
           setMonthlyPayment(0);
           setErrorMessage(data.error);
-          console.log("data.error", data.error);
         }
         setIsLoading(false);
       } catch (error) {
@@ -45,7 +45,7 @@ function Main() {
     };
     console.log("errorMessage", errorMessage);
     getMortgetCalculation();
-  }, [principal, annualInterestRate, termOfLoan]);
+  }, [principal, annualInterestRate, termOfLoan, monthlyPayment, errorMessage]);
 
   return (
     <div className="container border border-red-500 lg:h-[80vh] ">
