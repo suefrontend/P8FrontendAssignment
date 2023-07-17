@@ -3,10 +3,10 @@ import Calculator from "./Calculator";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState<number>(250000); //250000
+  const [principal, setPrincipal] = useState<number>(850000); //250000
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
-  const [monthlyPayment, setMonthlyPayment] = useState<number>(942.18);
+  const [monthlyPayment, setMonthlyPayment] = useState<number>(3203.42);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
 

@@ -31,7 +31,7 @@ a {
   @apply w-[8rem] h-[2rem] relative;
 }
 .main {
-  @apply border-blue-700 border flex md:pt-14 xl:pt-20 max-md:pt-12;
+  @apply border-blue-700 border flex md:pt-14 2xl:pt-20 xl:pt-14 max-md:pt-12;
 }
 .heading {
   @apply md:text-[32px] max-md:text-xl text-grey font-medium;
@@ -87,7 +87,7 @@ a {
   content: "%";
 }
 .radio__container {
-  @apply flex gap-5 md:flex-col;
+  @apply flex gap-4 md:flex-col;
 }
 .radio__label {
   @apply text-grey font-semibold max-sm:text-base md:text-xl max-md:text-lg md:pt-1 md:pt-1;
