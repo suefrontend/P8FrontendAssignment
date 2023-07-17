@@ -52,6 +52,7 @@ function SliderItem({
         max={max}
         step={step}
         value={value}
+        defaultValue={value}
         onChange={handleSlide}
         valueLabelDisplay="auto"
         valueLabelFormat={valueLabelFormat}

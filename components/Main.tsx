@@ -3,12 +3,12 @@ import Calculator from "./Calculator";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState(250000); //250000
-  const [annualInterestRate, setAnnualInterestRate] = useState(1.5);
-  const [termOfLoan, setTermOfLoan] = useState(25);
-  const [monthlyPayment, setMonthlyPayment] = useState(942.18);
-  const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [principal, setPrincipal] = useState<number>(250000); //250000
+  const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
+  const [termOfLoan, setTermOfLoan] = useState<number>(25);
+  const [monthlyPayment, setMonthlyPayment] = useState<number>(942.18);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   useEffect(() => {
     console.log("principal", principal);

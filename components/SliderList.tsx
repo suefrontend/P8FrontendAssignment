@@ -27,7 +27,7 @@ const SliderList = ({
       <SliderItem
         min={0}
         max={25}
-        step={1}
+        step={0.5}
         value={annualInterestRate}
         setValue={setAnnualInterestRate}
         label="interest rate"
