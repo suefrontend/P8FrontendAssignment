@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Calculator from "./Calculator";
 import Result from "./Result";
 
 function Main() {
-  const [principal, setPrincipal] = useState<number>(850000); //250000
+  const [principal, setPrincipal] = useState<number>("test"); //850000
   const [annualInterestRate, setAnnualInterestRate] = useState<number>(1.5);
   const [termOfLoan, setTermOfLoan] = useState<number>(25);
   const [monthlyPayment, setMonthlyPayment] = useState<number>(3203.42);
@@ -19,24 +20,19 @@ function Main() {
     const getMortgetCalculation = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/api/mortgageCalculation", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            principal,
-            annualInterestRate,
-            termOfLoan,
-          }),
-        });
-        const data = await response.json();
-        if (response.ok) {
-          setMonthlyPayment(data.monthlyPayment);
+        const url = `/api/mortgageCalculation?principal=${principal}&termOfLoan=${termOfLoan}&annualInterestRate=${annualInterestRate}`;
+
+        const response = await axios.post(url);
+
+        console.log("response", response);
+
+        if (response.status === 200) {
+          const { monthlyPayment } = response.data;
+          setMonthlyPayment(monthlyPayment);
           setErrorMessage("");
         } else {
           setMonthlyPayment(0);
-          setErrorMessage(data.error);
+          setErrorMessage(response.error);
         }
         setIsLoading(false);
       } catch (error) {
