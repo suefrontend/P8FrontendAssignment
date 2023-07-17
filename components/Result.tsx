@@ -4,10 +4,11 @@ import Button from "./Button";
 interface ResultProps {
   monthlyPayment: number;
   isLoading: boolean;
+  errorMessage: string;
 }
 
 function Result({ monthlyPayment, isLoading, errorMessage }: ResultProps) {
-  const priceWithComma = parseInt(monthlyPayment).toLocaleString("en-US");
+  const priceWithComma = Number(monthlyPayment).toLocaleString("en-US");
 
   return (
     <div className="result__container">
