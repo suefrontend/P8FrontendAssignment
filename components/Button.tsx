@@ -1,6 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-function Button({ children }) {
+interface ButtonProps {
+  children: ReactNode;
+}
+
+function Button({ children }: ButtonProps) {
   return <button className="btn">{children}</button>;
 }
 
